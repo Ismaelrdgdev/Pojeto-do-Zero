@@ -147,7 +147,7 @@ addressInput.addEventListener("input", function(event){
 //Finalizar pedido
 checkoutBtn.addEventListener("click", function(){
     const isOpen = checkAberto();
-        if(!isOpen){
+       if(!isOpen){
             Toastify({
                 text: "Estamos sem Funcionar no momento.",
                 duration: 3000,
@@ -187,20 +187,21 @@ checkoutBtn.addEventListener("click", function(){
 
 })
 
+//verificar hora e manipulart o card horario
 function checkAberto (){
     const data = new Date();
     const hora = data.getHours();
-    return hora >= 8 && hora < 22;
+    return hora >= 18 && hora < 01;
     //true = O estabelecimento está aberto
 }
 
 const spanItem = document.getElementById("date-span")
 const isOpen = checkAberto();
 
-if (isOpen){
+if(isOpen){
     spanItem.classList.remove("bg-red-500");
-    spanItem.classList.add("bg-green-600");
+    spanItem.classList.add("bg-green-600")
 }else{
-    spanItem.classList.remove("bg-green-600");
-    spanItem.classList.add("bg-red-500");
+    spanItem.classList.remove("bg-green-600")
+    spanItem.classList.add("bg-red-500")
 }
