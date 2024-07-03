@@ -8,7 +8,7 @@ const closeModalBtn = document.getElementById("close-modal-btn")
 const cardCounter = document.getElementById("cart-count")
 const addressInput = document.getElementById("address")
 const addressWarn = document.getElementById("address-warn")
-
+const userId = document.getElementById("Nome")
 
 let cart =[];
 
@@ -180,18 +180,18 @@ checkoutBtn.addEventListener("click", function(){
     const message = encodeURIComponent(cartItems)
     const phone = "5521993308955"
 
-    window.open(`https://wa.me/${phone}?text=${message} Endereço:${addressInput.value}`, "_blank")
+    window.open(`https://wa.me/${phone}?text=${message} Cliente: ${userId.value} Endereço: ${addressInput.value}`, "_blank")
 
     cart = [];
     updateCartModal();
 
 })
 
-//verificar hora e manipulart o card horario
+//verificar hora e manipular o card horario
 function checkAberto (){
     const data = new Date();
     const hora = data.getHours();
-    return hora >= 18 && hora < 01;
+    return hora >= 18 && hora < 23;
     //true = O estabelecimento está aberto
 }
 
